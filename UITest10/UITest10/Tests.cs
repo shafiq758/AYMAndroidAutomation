@@ -61,7 +61,7 @@ namespace UITest10
 
                 .StartApp();
         }
-       /*  [Test]
+        /* [Test]
         public void repl()
         {
             app.Repl();
@@ -110,18 +110,46 @@ namespace UITest10
             app.EnterText("magicA123");
             app.ScrollDownTo("I'd love to join!", strategy: ScrollStrategy.Gesture, timeout: new TimeSpan(0, 1, 0));
             app.Tap("I'd love to join!");
-            if(isDOB == false)
-            {
-
-            }
-            app.Query(c => c.Marked("OK").Parent().Class("AlertDialogLayout"));
             
+            app.Query(c => c.Marked("OK").Parent().Class("AlertDialogLayout"));
 
-            d_reg_logout();
-           
+            if (isDOB == false)
+            {
+                app.WaitForElement(x => x.Id("addDependentButton"));
+                app.Tap(x => x.Id("addDependentButton"));
+                app.Tap("OK");
+                app.Tap(x => x.Id("onboardingDependentContinueButton"));
+                app.WaitForElement("Let's lock this down");
+                app.Tap("Let's lock this down");
+                app.WaitForElement(x => x.Id("phoneNumberEditText"));
+                app.Tap(x => x.Id("phoneNumberEditText"));
+                app.EnterText("+14155552671");
+                app.Tap(x => x.Id("sendSafetyCodeBtn"));
+            }
+            Thread.Sleep(1000);
         }
 
-       [Test]
+
+        [Test]
+        public void b_reg_logout()
+        {
+            Thread.Sleep(10000);
+           var ispresent= app.Query(x=>x.Id("dialogFragmentSecondaryButton")).Any();
+            if (ispresent == true)
+            {
+                app.Tap(x => x.Id("dialogFragmentSecondaryButton"));
+            }
+
+            var isclosedialog = app.Query(x => x.Id("dialogFragmentPrimaryButton")).Any();
+            if (isclosedialog == true)
+            {
+                app.Tap(x => x.Id("dialogFragmentPrimaryButton"));
+            }
+            d_reg_logout();
+
+
+        }
+        [Test]
         public void login() {
 
             Thread.Sleep(20000);
@@ -179,7 +207,7 @@ namespace UITest10
         }
         public void e_menubar()
         {
-
+            bool result;
             Thread.Sleep(15000);
             app.Tap(x => x.Id("imgBack"));
             app.Tap(x => x.Id("imgBack"));
@@ -188,7 +216,12 @@ namespace UITest10
             string data = app.Query(c => c.Id("navItemText"))[0].Text;
             string data1 = app.Query(c => c.Id("navItemText"))[1].Text;
             string data2 = app.Query(c => c.Id("navItemText"))[2].Text;
-            bool result = data.Equals("Pampers account");
+            var ispamper = app.Query("Pampers Account").Any();
+            if (ispamper == true)
+                result = data.Equals("Pampers Account");
+            else
+                result = data.Equals("Pampers account");
+            
             bool result1 = data1.Equals("History");
             bool result2 = data2.Equals("Help");
             result.Equals(result1.Equals(result2));
@@ -206,7 +239,12 @@ namespace UITest10
             Thread.Sleep(15000);
             app.Tap(x => x.Id("action_hamburger"));
             Thread.Sleep(10000);
-            app.Tap("Pampers account");
+            //app.Tap("Pampers Account");
+            var ispamper = app.Query("Pampers Account").Any();
+            if (ispamper == true)
+                app.Tap("Pampers Account");
+            else
+                app.Tap("Pampers account");
 
             //app.Qnuery(c => c.Marked("Pampers Account").Parent().Class("AlertDialogLayout"));
             app.Tap("My Baby");
@@ -232,7 +270,12 @@ namespace UITest10
             //Thread.Sleep(15000);
             //app.Tap(x => x.Id("action_hamburger"));
             //Thread.Sleep(10000);
-            app.Tap("Pampers account");
+            var ispamper = app.Query("Pampers Account").Any();
+            if (ispamper == true)
+                app.Tap("Pampers Account");
+            else
+                app.Tap("Pampers account");
+
             app.Tap(x => x.Id("imgBack"));
             app.Tap("My Details");
             app.Tap("Edit");
@@ -290,8 +333,12 @@ namespace UITest10
             ////id for below
             app.Tap(x => x.Id("action_hamburger"));
             //app.Tap(x => x.Id("navAccountItem"));
-            app.Tap("Pampers account");
-           // app.Tap(x => x.Id("imgBack"));
+            var ispamper = app.Query("Pampers Account").Any();
+            if (ispamper == true)
+                app.Tap("Pampers Account");
+            else
+                app.Tap("Pampers account");
+            // app.Tap(x => x.Id("imgBack"));
             app.ScrollDownTo("Let's sign out", strategy: ScrollStrategy.Gesture, timeout: new TimeSpan(0, 1, 0));
 
             app.Tap(x => x.Id("logOutText"));
@@ -305,8 +352,12 @@ namespace UITest10
             
             app.Tap(x => x.Id("action_hamburger"));
             //app.Tap(x => x.Id("navAccountItem"));
-            app.Tap("Pampers account");
-           // app.Tap(x => x.Id("imgBack"));
+            var ispamper = app.Query("Pampers Account").Any();
+            if (ispamper == true)
+                app.Tap("Pampers Account");
+            else
+                app.Tap("Pampers account");
+            // app.Tap(x => x.Id("imgBack"));
             app.ScrollDownTo("Let's sign out", strategy: ScrollStrategy.Gesture, timeout: new TimeSpan(0, 1, 0));
 
             app.Tap(x => x.Id("logOutText"));
@@ -318,7 +369,7 @@ namespace UITest10
             //Thread.Sleep(15000);
            // app.Tap(x => x.Id("action_hamburger"));
             //Thread.Sleep(10000);
-           // app.Tap("Pampers account");
+           // app.Tap("Pampers Account");
             app.Tap("Change my password");
             app.Tap("Close");
 
@@ -370,21 +421,21 @@ namespace UITest10
                 app.Flash(x => x.Id("wantAnotherButton"));
                 app.Tap(x => x.Id("closeImageView"));
             }
-            var isCodeUsed = app.Query(x => x.Id("errorTypeTextView").Text("This looks familiar . . .")).Any();
-            if( isCodeUsed == true)
-            {
-                app.Flash(x => x.Id("actionButton"));
-                app.Tap(x => x.Id("closeImageView"));
+            //var isCodeUsed = app.Query(x => x.Id("errorTypeTextView")).Any();
+            //if( isCodeUsed == true)
+            //{
+            //   // app.Flash(x => x.Id("actionButton"));
+                
 
-            }
-            var isFailed = app.Query(x => x.Id("errorTypeTextView").Text("When codes fail . . .")).Any();  
-            if (isFailed == true)
-            {
-                app.Flash("Try Again");
-                app.Flash("Help me find codes");
-                app.Tap(x => x.Id("closeImageView"));
-            }
-            
+            //}
+            //var isFailed = app.Query(x => x.Id("errorTypeTextView")).Any();  
+            //if (isFailed == true)
+            //{
+            //    app.Flash("Try Again");
+            //    app.Flash("Help me find codes");
+            //    app.Tap(x => x.Id("closeImageView"));
+            //}
+            app.Tap(x => x.Id("closeImageView"));
             app.Tap("homeItemActionBtn");
             app.Tap(x => x.Id("wipeImageView"));
             var isWipesBox = app.Query(x=>x.Id("scan_wipes_dialog_manual_btn")).Any();
@@ -397,7 +448,7 @@ namespace UITest10
             app.Tap(x => x.Id("scanningGuideCardView2"));
             app.Tap(x => x.Id("scanningGuideCardView2"));
             app.Tap(x => x.Id("gotItButton"));
-            app.Flash("submitCodeButton");
+           // app.Flash("submitCodeButton");
             app.Tap(x => x.Id("closeImageView"));
         }
         public void AppLaunches()
