@@ -1,0 +1,18 @@
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\UITest10.dll
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\UITest10.pdb
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\nunit.framework.dll
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\Xamarin.UITest.dll
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\nunit.framework.xml
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\bin\Debug\Xamarin.UITest.xml
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.csprojResolveAssemblyReference.cache
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.dll
+c:\users\umar khan\documents\visual studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.pdb
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\UITest10.dll
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\UITest10.pdb
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\nunit.framework.dll
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\Xamarin.UITest.dll
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\nunit.framework.xml
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\bin\Debug\Xamarin.UITest.xml
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.dll
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\UITest10\UITest10\obj\Debug\UITest10.pdb
