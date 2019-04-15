@@ -23,6 +23,6 @@ steps:
 - task: XamarinAndroid@1
   inputs:
     projectFile: '**/UITest10.csproj'
-    target: 'UITest10/UITest10/Tests.cs'
+    target: 'UITest10\UITest10\Tests.cs'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
