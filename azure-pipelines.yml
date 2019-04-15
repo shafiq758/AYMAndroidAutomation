@@ -22,6 +22,6 @@ steps:
 
 - task: XamarinAndroid@1
   inputs:
-    projectFile: '**/UITest10.csproj'
+    projectFile: '**/bin/Debug/UITest10.dll'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
