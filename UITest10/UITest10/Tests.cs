@@ -56,7 +56,7 @@ namespace UITest10
                 .Android
                 // TODO: Update this path to point to your Android app and uncomment the
                 // code if the app is not included in the solution.
-                    .ApkFile ("../../../Android/bin/Debug/app-us-uat.apk")
+               //     .ApkFile ("../../../Android/bin/Debug/app-us-uat.apk")
           //      .ApkFile("../../../Android/bin/Debug/Prod.apk")
 
                 .StartApp();
