@@ -130,7 +130,7 @@ namespace UITest10
         }
 
 
-        [Test]
+     //   [Test]
         public void b_reg_logout()
         {
             Thread.Sleep(10000);
@@ -149,7 +149,7 @@ namespace UITest10
 
 
         }
-        [Test]
+      //  [Test]
         public void login() {
 
             Thread.Sleep(20000);
