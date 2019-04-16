@@ -183,7 +183,7 @@ namespace UITest10
             f_MyDetails();
             g_changepassword();
             home_ParentsHub();
-            home_GetMorePoints();
+           // home_GetMorePoints();
             d_logout();
         }
 
