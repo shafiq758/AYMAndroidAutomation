@@ -1,0 +1,5 @@
+steps:
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: UITest10/UITest10.sln
