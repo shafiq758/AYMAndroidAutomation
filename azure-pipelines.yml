@@ -30,3 +30,59 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'lint detektCheck test connectedAndroidTest'
+steps:
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+variables:
+  BuildConfiguration: 'Release'
+steps:
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: UITest10/UITest10.sln
+
+steps:
+- task: XamarinAndroid@1
+  displayName: 'Build Xamarin.Android project UITest10/UITest10/UITest10.csproj'
+  inputs:
+    projectFile: UITest10/UITest10/UITest10.csproj
+    outputDirectory: '$(build.binariesdirectory)/$(BuildConfiguration)'
+    configuration: '$(BuildConfiguration)'
+    createAppPackage: false
+    msbuildArchitectureOption: x64
+steps:
+- task: AndroidSigning@3
+  displayName: 'Signing and aligning APK file(s) UITest10/Android/bin/Debug/app-us-uat.apk'
+  inputs:
+    apkFiles: UITest10/Android/bin/Debug/app-us-uat.apk
+    apksign: false
+    zipalign: false    
+variables:
+  BuildConfiguration: 'Release'
+
+steps:
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.binariesdirectory)/$(BuildConfiguration)'
+  condition: succeededOrFailed()
+
+steps:
+- task: VSTest@2
+  displayName: 'VsTest - testAssemblies'
+  inputs:
+    testAssemblyVer2: |
+     UITest10/UITest10/bin/Debug/UITest10.dll
+     !**\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll
+     !**\obj\**
+    vsTestVersion: 15.0
+   
+     
+    publishRunAttachments: false
+  continueOnError: true
+  condition: succeededOrFailed()
+
+    
+    
