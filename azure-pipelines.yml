@@ -15,9 +15,9 @@ variables:
   
   
 steps:
-- task: Bash@3
+- task: CmdLine@2
   inputs:
-    targetType: inline
+    
     script: echo Configuring Environment
      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
      echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
@@ -29,8 +29,7 @@ steps:
      echo "Emulator started"
     workingDirectory:  $(Build.SourcesDirectory)
     failOnStderr: false
-    noProfile: true
-    noRc: true
+    
 
 
 
