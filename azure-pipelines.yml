@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macOS-10.13'
+  vmImage: 'vs2017-win2016'
 
 variables:
 
@@ -15,7 +15,10 @@ variables:
   
   
 steps:
-- script: |
+- task: Bash@3
+  inputs:
+    
+   script: |
     echo Configuring Environment
     echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
     echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
@@ -68,15 +71,16 @@ steps:
   inputs:
     PathtoPublish: '$(build.binariesdirectory)/$(BuildConfiguration)'
   condition: succeededOrFailed()
-- task: PublishTestResults@2
+- task: VSTest@2
+  displayName: 'VsTest - testAssemblies'
   inputs:
-    testResultsFormat: 'xUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: '**/TEST-*.xml' 
-    searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-    #mergeTestResults: false # Optional
-    #failTaskOnFailedTests: false # Optional
-    #testRunTitle: # Optional
-    #buildPlatform: # Optional
-    #buildConfiguration: # Optional
-    #publishRunAttachments: true # Optional  
+    testAssemblyVer2: |
+     UITest10/UITest10/bin/Debug/UITest10.dll
+     !**\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll
+     !**\obj\**
+    vsTestVersion: "15.0"
+     
+    publishRunAttachments: false
+  continueOnError: true
+  condition: succeededOrFailed()
 
