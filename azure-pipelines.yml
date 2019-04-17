@@ -15,11 +15,8 @@ variables:
   
   
 steps:
-- task: Bash@3
-
-  inputs:
-    targetType: inline
-    script: echo Configuring Environment
+- script: | 
+   echo Configuring Environment
      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
      echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
      echo $ANDROID_HOME/emulator/emulator -list-avds
@@ -28,10 +25,7 @@ steps:
      $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
      $ANDROID_HOME/platform-tools/adb devices
      echo "Emulator started"
-    workingDirectory:  $(Build.SourcesDirectory)
-    failOnStderr: false
-    noProfile:  true
-    noRc: true
+   
 
 
 
