@@ -68,5 +68,15 @@ steps:
   inputs:
     PathtoPublish: '$(build.binariesdirectory)/$(BuildConfiguration)'
   condition: succeededOrFailed()
-  
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'xUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    testResultsFiles: '**/TEST-*.xml' 
+    searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+    #mergeTestResults: false # Optional
+    #failTaskOnFailedTests: false # Optional
+    #testRunTitle: # Optional
+    #buildPlatform: # Optional
+    #buildConfiguration: # Optional
+    #publishRunAttachments: true # Optional  
 
