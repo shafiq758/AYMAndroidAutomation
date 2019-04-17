@@ -29,6 +29,8 @@ steps:
      echo "Emulator started"
     workingDirectory:  $(Build.SourcesDirectory)
     failOnStderr: false
+    noProfile: true
+    noRc: true
 
 
 
