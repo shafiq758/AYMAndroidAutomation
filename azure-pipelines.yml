@@ -1,0 +1,87 @@
+# Gradle
+# Build your Java project and run tests with Gradle using a Gradle wrapper script.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+jobs:
+- job: macOS
+  pool: 
+   vmImage: 'macOS-10.13'
+
+
+  variables:
+
+   BuildConfiguration: 'Release'
+  
+  
+  steps:
+  - script: | 
+      echo Configuring Environment
+      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
+      echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
+      echo $ANDROID_HOME/emulator/emulator -list-avds
+      echo "Starting emulator"
+      nohup $ANDROID_HOME/emulator/emulator -avd xamarin_android_emulator -no-snapshot > /dev/null 2>&1 &
+      $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
+      $ANDROID_HOME/platform-tools/adb devices
+      echo "Emulator started"
+   
+- job: Windows
+  pool:
+   vmImage: 'vs2017-win2016'
+  steps:
+  - task: NuGetToolInstaller@0
+
+    displayName: 'Use NuGet 4.4.1'
+
+    inputs:
+
+      versionSpec: 4.4.1
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      restoreSolution: UITest10/UITest10.sln
+
+  - task: XamarinAndroid@1
+
+    displayName: 'Build Xamarin.Android project UITest10/UITest10/UITest10.csproj'
+
+    inputs:
+
+      projectFile: UITest10/UITest10/UITest10.csproj
+
+      outputDirectory: '$(build.binariesdirectory)/$(BuildConfiguration)'
+
+      configuration: '$(BuildConfiguration)'
+
+      createAppPackage: false
+
+      msbuildArchitectureOption: x64
+
+  - task: AndroidSigning@3
+    displayName: 'Signing and aligning APK file(s) UITest10/Android/bin/Debug/app-us-uat.apk'
+    inputs:
+      apkFiles: UITest10/Android/bin/Debug/app-us-uat.apk
+      apksign: false
+      zipalign: false
+   
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.binariesdirectory)/$(BuildConfiguration)'
+    condition: succeededOrFailed()
+  - task: VSTest@2
+    displayName: 'VsTest - testAssemblies'
+    inputs:
+      testAssemblyVer2: |
+       UITest10/UITest10/bin/Debug/UITest10.dll
+       !**\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll
+       !**\obj\**
+      vsTestVersion: "15.0"
+     
+      publishRunAttachments: false
+    continueOnError: true
+    condition: succeededOrFailed()
+

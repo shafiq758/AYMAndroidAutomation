@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
   <!-- Configurations that affect the Test Framework -->
@@ -72,3 +73,14 @@
 
 </RunSettings>
 </RunSettings>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+    <Parameter name="endpoint" value="https://localhost:8081" />
+    <Parameter name="authKey" value="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" />
+    <Parameter name="database" value="ToDoListTest" />
+    <Parameter name="collection" value="ItemsTest" />
+  </TestRunParameters>
+</RunSettings>
+>>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
