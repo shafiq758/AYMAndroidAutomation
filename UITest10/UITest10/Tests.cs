@@ -11,20 +11,9 @@ using System.Text;
 
 namespace UITest10
 {
-<<<<<<< HEAD
 
-   
-
-
-
-    [TestFixture]
-
-    
-        public class RandomGenerator
-=======
     [TestFixture]
     public class RandomGenerator
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
     {
 
         public string RandomString(int size, bool lowerCase)
@@ -68,12 +57,9 @@ namespace UITest10
                 .Android
                 // TODO: Update this path to point to your Android app and uncomment the
                 // code if the app is not included in the solution.
-<<<<<<< HEAD
+
                     .ApkFile ("../../../Android/bin/Debug/app-us-uat.apk")
-=======
-               //     .ApkFile ("../../../Android/bin/Debug/app-us-uat.apk")
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
-          //      .ApkFile("../../../Android/bin/Debug/Prod.apk")
+
 
                 .StartApp();
         }
@@ -82,11 +68,7 @@ namespace UITest10
         {
             app.Repl();
         }*/
-<<<<<<< HEAD
 
-       
-=======
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
           [Test]
         public void a_Register()
         {
@@ -170,11 +152,7 @@ namespace UITest10
 
 
         }
-<<<<<<< HEAD
-       // [Test]
-=======
-        [Test]
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
+
         public void login() {
 
             Thread.Sleep(20000);
@@ -208,11 +186,9 @@ namespace UITest10
             f_MyDetails();
             g_changepassword();
             home_ParentsHub();
-<<<<<<< HEAD
-            home_GetMorePoints();
-=======
+
            // home_GetMorePoints();
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
+
             d_logout();
         }
 
@@ -269,20 +245,16 @@ namespace UITest10
             app.Tap(x => x.Id("action_hamburger"));
             Thread.Sleep(10000);
             //app.Tap("Pampers Account");
-<<<<<<< HEAD
+
             /*var ispamper = app.Query("Pampers Account").Any();
-=======
+
             var ispamper = app.Query("Pampers Account").Any();
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
             if (ispamper == true)
                 app.Tap("Pampers Account");
             else
                 app.Tap("Pampers account");
-<<<<<<< HEAD
                 */
-=======
 
->>>>>>> 0a663b59ac1903aca59d2aba16e0a1b26a128308
             //app.Qnuery(c => c.Marked("Pampers Account").Parent().Class("AlertDialogLayout"));
             app.Tap("My Baby");
             app.Tap("Edit");
