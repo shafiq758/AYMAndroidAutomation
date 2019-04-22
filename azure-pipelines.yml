@@ -28,10 +28,7 @@ jobs:
       %ANDROID_HOME%/platform-tools/adb devices
       echo "Emulator started"
    
-- job: Windows
-  pool:
-   vmImage: 'vs2017-win2016'
-  steps:
+
   - task: NuGetToolInstaller@0
 
     displayName: 'Use NuGet 4.4.1'
