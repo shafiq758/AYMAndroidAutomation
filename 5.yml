@@ -1,9 +1,0 @@
-variables:
-  BuildConfiguration: 'Release'
-
-steps:
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.binariesdirectory)/$(BuildConfiguration)'
-  condition: succeededOrFailed()
