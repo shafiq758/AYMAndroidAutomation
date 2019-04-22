@@ -17,6 +17,8 @@ jobs:
   
   
   steps:
+  - script: '"C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start'
+    displayName: 'Start Storage Emulator'
   - script: | 
       echo Configuring Environment
       echo "y" | %ANDROID_HOME%/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
