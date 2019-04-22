@@ -8,7 +8,7 @@ trigger:
 jobs:
 - job: macOS
   pool: 
-   vmImage: 'macOS-10.13'
+   vmImage: 'vs2017-win2016'
 
 
   variables:
@@ -19,13 +19,13 @@ jobs:
   steps:
   - script: | 
       echo Configuring Environment
-      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
-      echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
-      echo $ANDROID_HOME/emulator/emulator -list-avds
+      echo "y" | %ANDROID_HOME%/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
+      echo "no" | %ANDROID_HOME%/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
+      echo %ANDROID_HOME%/emulator/emulator -list-avds
       echo "Starting emulator"
-      nohup $ANDROID_HOME/emulator/emulator -avd xamarin_android_emulator -no-snapshot > /dev/null 2>&1 &
-      $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
-      $ANDROID_HOME/platform-tools/adb devices
+      nohup %ANDROID_HOME%/emulator/emulator -avd xamarin_android_emulator -no-snapshot > /dev/null 2>&1 &
+      %ANDROID_HOME%/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
+      %ANDROID_HOME%/platform-tools/adb devices
       echo "Emulator started"
    
 - job: Windows
