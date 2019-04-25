@@ -1,0 +1,11 @@
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\jp_automation.dll
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\jp_automation.pdb
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\nunit.framework.dll
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\Xamarin.UITest.dll
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\nunit.framework.xml
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\bin\Debug\Xamarin.UITest.xml
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\obj\Debug\jp_automation.dll
+c:\users\dell\documents\visual studio 2017\Projects\jp_automation\jp_automation\obj\Debug\jp_automation.pdb
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\jp_automation\jp_automation\obj\Debug\jp_automation.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\jp_automation\jp_automation\obj\Debug\jp_automation.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\Visual Studio 2017\Projects\jp_automation\jp_automation\obj\Debug\jp_automation.csproj.CopyComplete
