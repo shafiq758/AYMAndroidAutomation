@@ -1,0 +1,11 @@
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/UI_Automation_DE_UAT.dll
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/UI_Automation_DE_UAT.pdb
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/nunit.framework.dll
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/Xamarin.UITest.dll
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/nunit.framework.xml
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/bin/Debug/Xamarin.UITest.xml
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/obj/Debug/UI_Automation_DE_UAT.csprojAssemblyReference.cache
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/obj/Debug/UI_Automation_DE_UAT.csproj.CoreCompileInputs.cache
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/obj/Debug/UI_Automation_DE_UAT.csproj.CopyComplete
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/obj/Debug/UI_Automation_DE_UAT.dll
+/Users/macbookpro/Projects/UI_Automation_DE_UAT/UI_Automation_DE_UAT/obj/Debug/UI_Automation_DE_UAT.pdb
